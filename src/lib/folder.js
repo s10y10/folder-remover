@@ -28,7 +28,7 @@ function getFolderSize(folderPath) {
 
   files.forEach((file) => {
     const filePath = path.join(folderPath, file);
-    const stats = fs.statSync(filePath);
+    const stats = fs.lstatSync(filePath);
 
     if (stats.isFile()) {
       size += stats.size;
