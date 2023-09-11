@@ -3,13 +3,13 @@
 - [English](README.md)
 - [简体中文](README_zh-CN.md)
 
-## A simple CLI for recursively deleting node_modules, .git, .svn or custom-named folders
+## 一个简单的CLI，用于递归删除node_modules、.git、.svn或自定义命名文件夹
 
-# Usage
+# 使用
 ```
 npx folder-remover@latest <path>
 
-or 
+或者 
 
 npm install -g
 fr <path>
