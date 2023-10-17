@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import folder from './lib/folder.js';
-import prompt from './lib/prompt.js';
-import tools from './lib/tools.js';
+import fs from "fs";
+import path from "path";
+import folder from "./lib/folder.js";
+import prompt from "./lib/prompt.js";
+import tools from "./lib/tools.js";
 
 async function main() {
   const args = process.argv.slice(2);
@@ -13,9 +13,11 @@ async function main() {
     return;
   }
 
-  // 获取要删除的文件夹名
-  const folderName = await prompt.getFolderName();
+  // 声明查询根目录
   const targetDir = path.resolve(process.cwd(), args[0]);
+
+  // 获取要删除的文件夹名
+  const folderName = args[1] || (await prompt.getFolderName());
 
   // 查找是否存在要删除的文件夹
   const foundDirs = await folder.findFolders(targetDir, folderName);
@@ -32,7 +34,7 @@ async function main() {
 
   const confirmRes = await prompt.confirmDelete();
   if (!confirmRes) {
-    console.log('The deletion has been cancelled');
+    console.log("The deletion has been cancelled");
     return;
   }
 
@@ -55,6 +57,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('An error occurred:', err);
+  console.error("An error occurred:", err);
   process.exit(1);
 });

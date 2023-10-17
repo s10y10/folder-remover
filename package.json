@@ -1,6 +1,6 @@
 {
   "name": "folder-remover",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./dist/index.cjs",
   "engines": {
     "node": ">=18"
@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "test":"node ./test/index.js && node ./src/index.js",
     "build": "rollup -c",
     "publish": "npm publish --access=public --registry=https://registry.npmjs.org/"
   },
